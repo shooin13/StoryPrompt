@@ -29,7 +29,18 @@ class ViewController: UIViewController {
   
   @IBAction func generateStoryPrompt(_ sender: Any) {
     updateStoryPrompt()
-    print(storyPrompt)
+    if storyPrompt.isValid() {
+      print(storyPrompt)
+    } else {
+      let alert = UIAlertController(title: "Innvalid story prompt",
+                                    message: "Please fill out all the fields",
+                                    preferredStyle: .alert)
+      let action = UIAlertAction(title: "OK", style: .default) { _ in
+        alert.dismiss(animated: true)
+      }
+      alert.addAction(action)
+      present(alert, animated: true)
+    }
   }
   
   
