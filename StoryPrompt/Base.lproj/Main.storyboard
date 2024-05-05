@@ -143,7 +143,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Generate Story Prompt"/>
                                         <connections>
-                                            <segue destination="3Wl-Td-74l" kind="show" id="HHv-L4-Xzg"/>
+                                            <segue destination="3Wl-Td-74l" kind="show" identifier="StoryPrompt" id="HHv-L4-Xzg"/>
                                         </connections>
                                     </button>
                                 </subviews>
