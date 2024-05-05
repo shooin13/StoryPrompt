@@ -30,7 +30,7 @@ final class AddStoryPromptViewController: UIViewController {
   @IBAction func generateStoryPrompt(_ sender: Any) {
     updateStoryPrompt()
     if storyPrompt.isValid() {
-      print(storyPrompt)
+      performSegue(withIdentifier: "StoryPrompt", sender: nil)
     } else {
       let alert = UIAlertController(title: "Innvalid story prompt",
                                     message: "Please fill out all the fields",

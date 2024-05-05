@@ -143,7 +143,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Generate Story Prompt"/>
                                         <connections>
-                                            <segue destination="3Wl-Td-74l" kind="show" identifier="StoryPrompt" id="HHv-L4-Xzg"/>
+                                            <action selector="generateStoryPrompt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c75-V5-m2O"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -165,6 +165,7 @@
                         <outlet property="numberSlider" destination="Fie-Ag-8DG" id="zYM-Ld-vsV"/>
                         <outlet property="storyPromptImageView" destination="AhU-aD-bLR" id="dfF-Xr-Cl7"/>
                         <outlet property="verbTextField" destination="3Q5-2a-aLk" id="KLG-iq-aX9"/>
+                        <segue destination="3Wl-Td-74l" kind="show" identifier="StoryPrompt" id="vcQ-t0-ule"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
