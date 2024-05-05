@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="aEj-pz-N0B">
-                                <rect key="frame" x="20" y="116" width="353" height="339"/>
+                                <rect key="frame" x="20" y="116" width="353" height="392"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pOc-Xq-Hqr">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="34"/>
@@ -78,6 +79,9 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="5" maxValue="10" minimumValueImage="5.circle" catalog="system" maximumValueImage="10.circle" translatesAutoresizingMaskIntoConstraints="NO" id="Fie-Ag-8DG">
                                         <rect key="frame" x="-2" y="210.33333333333331" width="357" height="31"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="changeNumber:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qt7-ty-T2z"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLB-Iq-llI">
                                         <rect key="frame" x="0.0" y="262.33333333333331" width="353" height="20.333333333333314"/>
@@ -85,8 +89,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ImH-Lc-Ywx">
+                                        <rect key="frame" x="0.0" y="304.66666666666669" width="353" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Horror"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="changeStoryType:" destination="BYZ-38-t0r" eventType="valueChanged" id="56K-4b-bRt"/>
+                                        </connections>
+                                    </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAT-WE-9oA">
-                                        <rect key="frame" x="0.0" y="304.66666666666669" width="353" height="34.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="357.66666666666669" width="353" height="34.333333333333314"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Generate Story Prompt"/>
@@ -102,6 +116,13 @@
                             <constraint firstItem="aEj-pz-N0B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="57" id="vIm-3V-MiR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adjectiveTextField" destination="QJc-Vu-aTB" id="Y97-Ve-ZOx"/>
+                        <outlet property="nounTextField" destination="SeA-DK-JrS" id="CLa-rG-2H0"/>
+                        <outlet property="numberLabel" destination="vBt-MV-hwt" id="orH-3D-V6C"/>
+                        <outlet property="numberSlider" destination="Fie-Ag-8DG" id="zYM-Ld-vsV"/>
+                        <outlet property="verbTextField" destination="3Q5-2a-aLk" id="KLG-iq-aX9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
