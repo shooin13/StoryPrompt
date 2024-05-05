@@ -1,4 +1,5 @@
 import UIKit
+import PhotosUI
 
 class ViewController: UIViewController {
   
@@ -8,8 +9,8 @@ class ViewController: UIViewController {
   @IBOutlet private weak var adjectiveTextField: UITextField!
   @IBOutlet private weak var verbTextField: UITextField!
   @IBOutlet private weak var numberSlider: UISlider!
-  @IBOutlet weak var numberLabel: UILabel!
-  
+  @IBOutlet private weak var numberLabel: UILabel!
+  @IBOutlet private weak var storyPromptImageView: UIImageView!
   
   @IBAction func changeNumber(_ sender: UISlider) {
     let number = Int(sender.value)
@@ -18,7 +19,7 @@ class ViewController: UIViewController {
   }
   
   @IBAction func changeStoryType(_ sender: UISegmentedControl) {
-     if let genre = StoryPrompts.Genre(rawValue: sender.selectedSegmentIndex) {
+    if let genre = StoryPrompts.Genre(rawValue: sender.selectedSegmentIndex) {
       storyPrompt.genre = genre
     } else {
       storyPrompt.genre = .scifi
@@ -35,12 +36,24 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     numberSlider.value = 7.5
+    storyPromptImageView.isUserInteractionEnabled = true
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage))
+    storyPromptImageView.addGestureRecognizer(gestureRecognizer)
   }
   
   private func updateStoryPrompt() {
     storyPrompt.noun = nounTextField.text ?? ""
     storyPrompt.adjective = adjectiveTextField.text ?? ""
     storyPrompt.verb = verbTextField.text ?? ""
+  }
+  
+  @objc private func changeImage() {
+    var configuration = PHPickerConfiguration()
+    configuration.filter = .images
+    configuration.selectionLimit = 1
+    let controller = PHPickerViewController(configuration: configuration)
+    controller.delegate = self
+    present(controller, animated: true)
   }
   
 }
@@ -51,4 +64,25 @@ extension ViewController: UITextFieldDelegate {
     updateStoryPrompt()
     return true
   }
+}
+
+
+extension ViewController: PHPickerViewControllerDelegate {
+  func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+    dismiss(animated: true)
+    if !results.isEmpty {
+      guard let result = results.first else { return }
+      let itemProvider = result.itemProvider
+      if itemProvider.canLoadObject(ofClass: UIImage.self) {
+        itemProvider.loadObject(ofClass: UIImage.self) { [ weak self ] image, error in
+          guard let image = image as? UIImage else { return }
+          DispatchQueue.main.async {
+            self?.storyPromptImageView.image = image
+          }
+        }
+      }
+    }
+  }
+  
+  
 }

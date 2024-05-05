@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="aEj-pz-N0B">
-                                <rect key="frame" x="20" y="116" width="353" height="392"/>
+                                <rect key="frame" x="20" y="116" width="353" height="632.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pOc-Xq-Hqr">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="34"/>
@@ -92,14 +92,26 @@
                                             <action selector="changeNumber:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qt7-ty-T2z"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLB-Iq-llI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ7-uR-e5P">
                                         <rect key="frame" x="0.0" y="262.33333333333331" width="353" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redCat" translatesAutoresizingMaskIntoConstraints="NO" id="AhU-aD-bLR">
+                                        <rect key="frame" x="0.0" y="304.66666666666669" width="353" height="176"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="AhU-aD-bLR" secondAttribute="height" multiplier="353:176" id="8qs-48-ygh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLB-Iq-llI">
+                                        <rect key="frame" x="0.0" y="502.66666666666657" width="353" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ImH-Lc-Ywx">
-                                        <rect key="frame" x="0.0" y="304.66666666666669" width="353" height="32"/>
+                                        <rect key="frame" x="0.0" y="545" width="353" height="32"/>
                                         <segments>
                                             <segment title="First"/>
                                             <segment title="Horror"/>
@@ -109,7 +121,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAT-WE-9oA">
-                                        <rect key="frame" x="0.0" y="357.66666666666669" width="353" height="34.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="598" width="353" height="34.333333333333371"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Generate Story Prompt"/>
@@ -133,16 +145,18 @@
                         <outlet property="nounTextField" destination="SeA-DK-JrS" id="CLa-rG-2H0"/>
                         <outlet property="numberLabel" destination="vBt-MV-hwt" id="orH-3D-V6C"/>
                         <outlet property="numberSlider" destination="Fie-Ag-8DG" id="zYM-Ld-vsV"/>
+                        <outlet property="storyPromptImageView" destination="AhU-aD-bLR" id="dfF-Xr-Cl7"/>
                         <outlet property="verbTextField" destination="3Q5-2a-aLk" id="KLG-iq-aX9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11" y="5"/>
+            <point key="canvasLocation" x="-11.450381679389313" y="4.9295774647887329"/>
         </scene>
     </scenes>
     <resources>
         <image name="10.circle" catalog="system" width="128" height="123"/>
         <image name="5.circle" catalog="system" width="128" height="123"/>
+        <image name="redCat" width="2121" height="1414"/>
     </resources>
 </document>
