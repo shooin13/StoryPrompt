@@ -1,7 +1,7 @@
 import UIKit
 import PhotosUI
 
-class ViewController: UIViewController {
+final class AddStoryPromptViewController: UIViewController {
   
   private let storyPrompt = StoryPromptEntry()
   
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
   @IBAction func generateStoryPrompt(_ sender: Any) {
     updateStoryPrompt()
     if storyPrompt.isValid() {
-      print(storyPrompt)
+      performSegue(withIdentifier: "StoryPrompt", sender: nil)
     } else {
       let alert = UIAlertController(title: "Innvalid story prompt",
                                     message: "Please fill out all the fields",
@@ -67,9 +67,16 @@ class ViewController: UIViewController {
     present(controller, animated: true)
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "StoryPrompt" {
+      guard let storyPromptViewController = segue.destination as? StoryPromptViewController else { return }
+      storyPromptViewController.storyPrompt = storyPrompt
+    }
+  }
+  
 }
 
-extension ViewController: UITextFieldDelegate {
+extension AddStoryPromptViewController: UITextFieldDelegate {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
     updateStoryPrompt()
@@ -78,7 +85,7 @@ extension ViewController: UITextFieldDelegate {
 }
 
 
-extension ViewController: PHPickerViewControllerDelegate {
+extension AddStoryPromptViewController: PHPickerViewControllerDelegate {
   func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
     dismiss(animated: true)
     if !results.isEmpty {
