@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5714E9922BEAC3F200668646 /* StoryPromptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714E9912BEAC3F200668646 /* StoryPromptTableViewController.swift */; };
 		579EEC7D2B25CEB70089A455 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579EEC7C2B25CEB70089A455 /* AppDelegate.swift */; };
 		579EEC7F2B25CEB70089A455 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579EEC7E2B25CEB70089A455 /* SceneDelegate.swift */; };
 		579EEC812B25CEB70089A455 /* AddStoryPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579EEC802B25CEB70089A455 /* AddStoryPromptViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5714E9912BEAC3F200668646 /* StoryPromptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPromptTableViewController.swift; sourceTree = "<group>"; };
 		579EEC792B25CEB70089A455 /* StoryPrompt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryPrompt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		579EEC7C2B25CEB70089A455 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		579EEC7E2B25CEB70089A455 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				579EEC802B25CEB70089A455 /* AddStoryPromptViewController.swift */,
 				57AB6B252BE82D4D00B24EB4 /* StoryPromptViewController.swift */,
+				5714E9912BEAC3F200668646 /* StoryPromptTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5714E9922BEAC3F200668646 /* StoryPromptTableViewController.swift in Sources */,
 				57AB6B262BE82D4D00B24EB4 /* StoryPromptViewController.swift in Sources */,
 				579EEC942B25D0400089A455 /* StoryPrompts.swift in Sources */,
 				579EEC812B25CEB70089A455 /* AddStoryPromptViewController.swift in Sources */,
