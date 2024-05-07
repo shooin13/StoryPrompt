@@ -1,31 +1,31 @@
 import UIKit
 
 final class StoryPromptTableViewController: UITableViewController  {
-  var storyPrompts = [StoryPromptEntry()]
+  private var storyPrompts = [StoryPromptEntry]()
+  
+  @IBAction private func saveStoryPrompt(unwindSegue: UIStoryboardSegue) {
+    guard let storyPromptViewController = unwindSegue.source as? StoryPromptViewController,
+            let storyPrompt = storyPromptViewController.storyPrompt else { return }
+    storyPrompts.append(storyPrompt)
+    tableView.reloadData()
+  }
+  
+  @IBAction func saveStoryPrompt(_ sender: Any) {
+    performSegue(withIdentifier: "SaveStoryPrompt", sender: nil)
+  }
+  
+  @IBAction private func cancelStoryPrompt(unwindSegue: UIStoryboardSegue) {
+    dismiss(animated: true, completion: nil)
+  }
+  
+  @IBAction private func cancelStoryPrompt(_ sender: Any) {
+    performSegue(withIdentifier: "CancelStoryPrompt", sender: nil)
+  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    let storyPrompt1 = StoryPromptEntry()
-    let storyPrompt2 = StoryPromptEntry()
-    let storyPrompt3 = StoryPromptEntry()
-    
-    storyPrompt1.noun = "Toaster"
-    storyPrompt1.adjective = "Smelly"
-    storyPrompt1.verb = "attacks"
-    storyPrompt1.number = 5
-    
-    storyPrompt2.noun = "Toaster"
-    storyPrompt2.adjective = "Smelly"
-    storyPrompt2.verb = "attacks"
-    storyPrompt2.number = 5
-    
-    storyPrompt3.noun = "Toaster"
-    storyPrompt3.adjective = "Smelly"
-    storyPrompt3.verb = "attacks"
-    storyPrompt3.number = 5
-    
-    storyPrompts = [storyPrompt1, storyPrompt2, storyPrompt3]
+  
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
